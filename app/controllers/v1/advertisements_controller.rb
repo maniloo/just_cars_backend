@@ -12,7 +12,7 @@ module V1
       if advertisement_creator.call
         render json: serialize_element(advertisement_creator.advertisement), status: :created
       else
-        render json: { error: advertisement_creator.advertisement.errors.full_messages.to_sentence}
+        render json: { error: advertisement_creator.advertisement.errors.full_messages.to_sentence}, status: :bad_request
       end
     end
 

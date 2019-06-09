@@ -2,6 +2,10 @@ module V1
   class ApiV1Controller < ApplicationController
     before_action :set_headers
 
+    rescue_from ActiveRecord::RecordNotFound do
+      render status: :not_found
+    end
+
     private
 
     def set_headers
